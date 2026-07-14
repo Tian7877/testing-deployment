@@ -55,6 +55,7 @@ pipeline {
                         terraform init -input=false
                         terraform plan -input=false \
                             -var="app_image=${IMAGE_NAME}:${IMAGE_TAG}" \
+			    -var="kubeconfig_path=${KUBECONFIG_CRED}" \
                             -out=tfplan
                     '''
                 }
